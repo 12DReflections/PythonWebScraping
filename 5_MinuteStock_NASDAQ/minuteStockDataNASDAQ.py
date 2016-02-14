@@ -20,7 +20,7 @@ def printJSON(theJSON):
         print theJSON[0]["price"][stockprice]["value"]
         stockprice+=1
         
-    print "The number of prices is ", len(theJSON[0]["price"])
+    #print "The number of prices is ", len(theJSON[0]["price"])
 
 
 ##      Print JSON of Prices and Times  ##
@@ -29,8 +29,8 @@ def printPriceTimes(theJSON):
     for values in theJSON[0]["price"]:
         print theJSON[0]["price"][priceTime]
         priceTime+=1
-
-    print "The number of prices is ", len(theJSON[0]["price"])
+        
+    #print "The number of prices is ", len(theJSON[0]["price"])
 
 
 if __name__ == "__main__":
