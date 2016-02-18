@@ -13,7 +13,11 @@ def main():
 
 	for tag in soup.findAll('a', href = True):
 		print base + tag['href']
-
+'''
+	# Path without hostname
+	for tag in soup.findAll('a', href=True):
+		print urlparse.urlparse(tag['href']).path
+'''
 
 if __name__ == "__main__":
     main()
