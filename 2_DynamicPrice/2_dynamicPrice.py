@@ -16,5 +16,5 @@ while i < len(symbolslist):
     regex = '<span id="yfs_l84_'+symbolslist[i]+'.ax">(.+?)</span>' #regex in brackets
     pattern = re.compile(regex)
     price = re.findall(pattern, htmltext)
-    print"The price of ", symbolslist[i], " is $", price
+    print"The price of ", symbolslist[i], " is $", price[0]
     i+=1
