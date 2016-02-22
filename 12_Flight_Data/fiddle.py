@@ -10,13 +10,16 @@ query = "INSERT INTO flight_table (planeID,ADSHEX,longitude,latitude,altitude,ra
 
 for planeID in theJSON:
         if '8' in planeID:
-#        							planeID 				ADSHEX 						long 							lat 					alt 						radar 						aircraft 						from 							to
+#        							planeID 				ADSHEX 						long 							lat 					alt 						radarID 						aircraft 						from 							to
             query = query + "'(" + planeID + "','" + theJSON[planeID][0] + "'," + theJSON[planeID][1] + "," + theJSON[planeID][2] + "," + theJSON[planeID][4] + ",'" + theJSON[planeID][7] + "','" + theJSON[planeID][8]  + "','" + theJSON[planeID][11] + "','" + theJSON[planeID][12] + "'," + now  + ")," 
-# replace final comma with semi-colon
+# Replace final comma with semi-colon in the query
 if query.endswith(','):
     query = query[:-1]
     query = query + ';' 
 
-            , "ADSHEX: ", theJSON[planeID][0], "longitude: ", theJSON[planeID][1], "latitude: ", theJSON[planeID][2], 
-                "altitude: ", theJSON[planeID][4], "radarID: ", theJSON[planeID][7],"Aircraft: ", theJSON[planeID][8], "Reg No.", theJSON[planeID][9], 
-                "From: ", theJSON[planeID][11], "To: ", theJSON[planeID][12])
+
+print 'Insert Query: ' + query
+x = conn.cursor()
+x.execute(query)
+conn.commit()
+row = x.fetchall()
