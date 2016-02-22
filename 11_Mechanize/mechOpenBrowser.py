@@ -10,6 +10,7 @@ def main():
 	mechBrowser = mechanize.Browser()
 
 	mechBrowser.open(url)
+	#debug(mechBrowser) 
 
 	# Correct directory output
 	for link in mechBrowser.links():
@@ -19,14 +20,11 @@ def main():
 		print "http://" + b1 + b2
 
 
-'''	
-	for link in mechBrowser.links():
-		# print "The base url is: " + link.base_url
-		# Directory output
-		newURL = urlparse.urljoin(link.base_url,link.url)
-		print newURL
-
-'''
+# Show Header and Debug Log
+def debug(mechBrowser):
+	mechBrowser.set_debug_http(True)
+	mechBrowser.set_debug_responses(True)
+	logging.getLogger('mechanize').setLevel(logging.DEBUG)
 
 if __name__ == "__main__":
     main()
