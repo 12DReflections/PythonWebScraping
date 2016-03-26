@@ -16,6 +16,8 @@ are
 with
 as
 I
+i
+not
 his
 they
 be
@@ -34,6 +36,7 @@ what
 there
 we
 can
+var
 out
 other
 were
@@ -44,6 +47,8 @@ up
 use
 word
 how
+mozallowfullscreen
+webkitallowfullscreen
 said
 an
 each
@@ -55,6 +60,7 @@ time
 if
 will
 way
+authlinksregistered
 about
 many
 then

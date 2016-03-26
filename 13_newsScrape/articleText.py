@@ -36,4 +36,10 @@ def getKeywords(articletext):
                 wordDict[word] = 1
             if word in wordDict:
                 wordDict[word] += 1
-    print sorted(wordDict.items(), key=lambda(k,v):(v,k), reverse=True)[0:25]
+    topWords = sorted(wordDict.items(), key=lambda(k,v):(v,k), reverse=True)[0:25]
+    
+    top25Words = []
+    for word in topWords:
+        top25Words.append(word[0])
+
+    return top25Words
