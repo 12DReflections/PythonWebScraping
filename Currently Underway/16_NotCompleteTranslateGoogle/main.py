@@ -15,7 +15,7 @@ import gzip
 def main():
     url = "http://www.nbcnews.com/tech/innovation/drone-delivers-package-residential-area-first-time-n545901"
 
-    articleAttrs = getarticle.get
+    translateString()
 
 
 def translateString(homeLanguage, targetLanguage, transText):

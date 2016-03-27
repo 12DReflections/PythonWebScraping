@@ -10,12 +10,16 @@ from bs4 import BeautifulSoup
 from urlparse import urlparse
 import hashlib
 
+def main():
+    url = "http://www.nbcnews.com/tech/innovation/drone-delivers-package-residential-area-first-time-n545901"
+    searchPic(term)
 def searchPic(term):
     img_list = getPic(term)
     if len(img_list)>0:
         for img in img_list:
             savePic(img)
     print "done..."     
+
 
 def getPic (search):
     search = search.replace(" ","%20")
