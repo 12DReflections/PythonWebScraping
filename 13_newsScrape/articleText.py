@@ -14,7 +14,7 @@ def getArticleText(webText):
     soup = BeautifulSoup(webText,  "html.parser")
     for tag in soup.findAll('p'): #for tag in soup.findAll('p', attrs={"itemprop":"itemDescription}):
         try:
-            articleText += ' \n' + str(tag.contents[0].decode("utf-8"))
+            articleText += ' ' + str(tag.contents[0].decode("utf-8"))
         except:
             continue
 
