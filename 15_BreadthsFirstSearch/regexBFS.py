@@ -37,7 +37,7 @@ def scrapeStep(root):
     br.addheaders = [('User-agent', 'Firefox')]
 
     # Regex pattern to match and add to scraper
-    regex = re.compile("http://www.careerone.com.au/(.*)")
+    regex = re.compile("http://www.seek.com.au/jobs/(.*)")
     
     # If link match regex pattern, add to list of urls 
     for url in root:

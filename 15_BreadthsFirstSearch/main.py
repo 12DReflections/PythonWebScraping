@@ -1,12 +1,12 @@
 import BFSScrape
-import tes4
+import regexBFS
 
 # Scrapes a website 
 
 def main():
-        url = "http://www.careerone.com.au/"
-#        scrapedUrls = BFSScrape.scraper(url, 1)
-        scrapedUrls = tes4.scraper(url, 3)
+        url = "http://www.seek.com.au/"
+#        scrapedUrls = BFSScrape.scraper(url, 2)
+        scrapedUrls = regexBFS.scraper(url, 1)
         
 if __name__ == "__main__":
         main()
