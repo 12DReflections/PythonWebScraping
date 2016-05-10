@@ -14,13 +14,3 @@ client.close()
 
 
 
-'''
-Clean non utf
-import string
-#Clean non utf characters
-#http://stackoverflow.com/questions/8689795/how-can-i-remove-non-ascii-characters-but-leave-periods-and-spaces-using-python
-      #clean non UTF from string
-        printable = set(string.printable)
-        cleanstring = filter(lambda x: x in printable, info['companyName'])
-
-'''
