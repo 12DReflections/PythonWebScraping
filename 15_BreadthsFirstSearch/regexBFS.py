@@ -39,8 +39,9 @@ def scraper(root,steps, regexPattern):
 
 def scrapeStep(root, regexPattern, _br):
     result_urls = []
+
     # Regex pattern to match and add to scraper
-    regex = re.compile(str(root) + regexPattern)
+    regex = re.compile(root[0] + regexPattern)
     
     # If link match regex pattern, add to list of urls 
     for url in root:
@@ -109,4 +110,4 @@ def getMultiHtml(urlsList,steps):
         g.join()
 
 
-#print getMultitml(url,13)
+#print getMultitml(url,3)
