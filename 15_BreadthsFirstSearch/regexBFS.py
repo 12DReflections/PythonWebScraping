@@ -46,7 +46,7 @@ def scrapeStep(root):
             for link in br.links():
                     newurl =  urlparse.urljoin(link.base_url,link.url)
                     # remove 'if statement' for all result_url's
-                    if regex.match(newurl):
+                    if regex.match(newurl) and newurl not in result_urls:
                         result_urls.append(newurl)
                         print newurl                        
         except:
