@@ -13,14 +13,16 @@ import urlparse
 # Scrapes a website through Breadth First Search
 #import BFSScrape
 #url = "http://www.careerone.com.au/"
+#regex = "(.*)"
+#scrapedUrls = BFSScrape.scraper(url, 1, regex)
 #        scrapedUrls = BFSScrape.scraper(url, 1)
 
-def scraper(root,steps):
+def scraper(root,steps, regexPattern):
     urls = [root]
     visited = [root]
     counter = 0
     while counter < steps:
-        step_url = scrapeStep(urls) #step_url is all url's visited in one step[]
+        step_url = scrapeStep(urls, regexPattern) #step_url is all url's visited in one step[]
         urls= []
         for u in step_url:
             if u not in visited:
@@ -30,14 +32,14 @@ def scraper(root,steps):
 
     print visited     
 
-def scrapeStep(root):
+def scrapeStep(root, regexPattern):
     result_urls = []
     br = mechanize.Browser()
     br.set_handle_robots(False)
     br.addheaders = [('User-agent', 'Firefox')]
 
     # Regex pattern to match and add to scraper
-    regex = re.compile("http://www.seek.com.au/jobs/(.*)")
+    regex = re.compile(str(root) + regexPattern)
     
     # If link match regex pattern, add to list of urls 
     for url in root:
@@ -46,12 +48,13 @@ def scrapeStep(root):
             for link in br.links():
                     newurl =  urlparse.urljoin(link.base_url,link.url)
                     # remove 'if statement' for all result_url's
-                    if regex.match(newurl) and newurl not in result_urls:
+                    if regex.match(newurl) and newurl not in result_urls: #not sure whether need the 'and'
                         result_urls.append(newurl)
                         print newurl                        
         except:
             print "error"       
     return result_urls   
+
 
 
 
