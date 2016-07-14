@@ -13,13 +13,13 @@ def main():
 	# Get top ranked words from article body <p>, print the keywords
 	article = articleText.getArticle(url)
 	print article
-#	print articleText.getKeywords(article)
+	print articleText.getKeywords(article)
 	
 	# Get htmlText and print the top keywords from a page's text
-	article = gethtml.getHtmlText(url)
-	keywordsList = articleText.getKeywords(article)
-	for keyword in keywordsList[0:10]:
-		print keyword
+#	article = gethtml.getHtmlText(url)
+#	keywordsList = articleText.getKeywords(article)
+#	for keyword in keywordsList[0:10]:
+#		print keyword
 
 if __name__ == "__main__":
 	main()

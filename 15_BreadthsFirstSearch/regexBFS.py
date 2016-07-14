@@ -14,10 +14,12 @@ import urlparse
 #import BFSScrape
 #url = "http://www.careerone.com.au/"
 #regex = "(.*)"
-#scrapedUrls = BFSScrape.scraper(url, 1, regex)
+# pattern = url + regex
+#scrapedUrls = BFSScrape.scraper(url, 1, regex, pattern)
 #        scrapedUrls = BFSScrape.scraper(url, 1)
+#
 
-def scraper(root,steps, regexPattern):
+def scraper(root,steps, regexPattern, pattern):
     #Set the Browser
     br = mechanize.Browser()
     br.set_handle_robots(False)
@@ -37,11 +39,11 @@ def scraper(root,steps, regexPattern):
 
     print visited     
 
-def scrapeStep(root, regexPattern, _br):
+def scrapeStep(root, regexPattern, _br, pattern):
     result_urls = []
 
     # Regex pattern to match and add to scraper
-    regex = re.compile(root[0] + regexPattern)
+    regex = re.compile(pattern)
     
     # If link match regex pattern, add to list of urls 
     for url in root:
