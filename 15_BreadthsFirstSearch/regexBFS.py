@@ -2,7 +2,6 @@ import urllib
 import re
 import time
 from threading import Thread
-#import MySQLdb
 import mechanize
 import readability
 from bs4 import BeautifulSoup
