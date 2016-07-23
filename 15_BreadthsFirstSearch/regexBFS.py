@@ -109,6 +109,7 @@ def getMultiHtml(urlsList,steps):
 
     for g in threadlist:
         g.join()
-
-
-#print getMultitml(url,3)
+'''
+url = ['www.theage.com.au/', 'http://www.heraldsun.com.au/']
+print getMultiHtml(url,1)
+'''
