@@ -1,8 +1,8 @@
 import string
 
-
-#Clean non utf characters from string
-
+'''
+Clean non utf characters from string
+'''
 
 ## Method 1
 invalidString = 'this is a string \xe2\x82\xa1 \xf0\x28\x8c\x28 \xfc\xa1\xa1\xa1\xa1\xa1'

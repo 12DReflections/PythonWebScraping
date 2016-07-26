@@ -2,11 +2,11 @@ from threading import Thread
 import urllib2
 import re
 import os
-#import MySQLdb
 
+'''
+A multithreaded share price retrieval
+'''
 
-# A multithreaded share pull
-  
 # Chage working directory
 direct = "C:\\Python2.7\\PythonWebScraping\\7_MultiThread"
 os.chdir(direct)
