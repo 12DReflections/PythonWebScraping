@@ -20,8 +20,12 @@ for doc in cursor:
     json_doc = json.dumps(doc, default=json_util.default)
     json_docs.append(json_doc)
 
+# List Comprehension
+#json_docs = [json.dumps(doc, default=json_util.default) for doc in cursor]
 
-
+#To get back from json again as string list
+docs = [json.loads(j_doc, object_hook=json_util.object_hook) for j_doc in json_docs]
+print docs
 
 print 'kitty'
 
