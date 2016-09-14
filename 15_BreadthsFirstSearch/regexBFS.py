@@ -9,14 +9,15 @@ from readability.readability import Document
 import urlparse
 
 
+
 # Scrapes a website through Breadth First Search
-#import BFSScrape
-#url = "http://www.careerone.com.au/"
-#regex = "(.*)"
-# pattern = url + regex
-#scrapedUrls = BFSScrape.scraper(url, 1, regex, pattern)
-#        scrapedUrls = BFSScrape.scraper(url, 1)
-#
+def main():
+    url = "http://finefoodaustralia.com.au/exhibitor"
+    regex = "(.*)"
+    pattern = url + regex
+    scrapedUrls = scraper(url, 10, regex, pattern)
+    #scrapedUrls = BFSScrape.scraper(url, 1)
+    print scrapedUrls
 
 def scraper(root,steps, regexPattern, pattern):
     #Set the Browser
@@ -28,7 +29,7 @@ def scraper(root,steps, regexPattern, pattern):
     visited = [root]
     counter = 0
     while counter < steps:
-        step_url = scrapeStep(urls, regexPattern, br) #step_url is all url's visited in one step[]
+        step_url = scrapeStep(urls, regexPattern, br, pattern) #step_url is all url's visited in one step[]
         urls= []
         for u in step_url:
             if u not in visited:
@@ -109,7 +110,14 @@ def getMultiHtml(urlsList,steps):
 
     for g in threadlist:
         g.join()
+
+
+
 '''
 url = ['www.theage.com.au/', 'http://www.heraldsun.com.au/']
 print getMultiHtml(url,1)
 '''
+
+
+if __name__ == "__main__":
+    main()
