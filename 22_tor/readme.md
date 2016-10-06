@@ -13,7 +13,7 @@ sudo apt-get install tor
 and cookie authentication (check https://stem.torproject.org/faq.html#)
 
 
- sudo pip install stem
+sudo pip install stem
 sudo  pip install PySocks
 
 
