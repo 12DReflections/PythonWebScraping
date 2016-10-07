@@ -1,3 +1,7 @@
+#Python Tor Automation
+
+#### Dependencies
+
 stem (sudo apt-get install python-stem)
 socksipy (sudo apt-get install python-socksipy)
 tor (sudo apt-get install tor)
