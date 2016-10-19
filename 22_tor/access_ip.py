@@ -7,7 +7,6 @@ from stem.control import Controller
 from stem import Signal
 import urllib2
 import sys
-import httplib
 
 from stem import Signal
 
