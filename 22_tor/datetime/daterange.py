@@ -5,6 +5,7 @@ import random
 import sys
 def main():
 	
+	
 	times_per_week = 5
 
 	run_random_time(times_per_week)
