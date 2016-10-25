@@ -10,10 +10,11 @@ Usage:
 Dependencies:
 
 - tor (packaged and standalone executables work)
-- pip install stem
-- pip install PySocks
-- pip install docopt
+- sudo pip install stem
+- sudo pip install PySocks
+- sudo pip install docopt
 	: parse options
+
 - pip install colorama
 	: cross-platform support for ANSI colors
 - [optional] sudo apt-get tor-geoipdb
@@ -49,28 +50,6 @@ if args['--geoipfile']:
 		config.update(GeoIPFile=args['--geoipfile'], GeoIPv6File=args['--geoipfile']+'6')
 
 
-print(term.format("Starting Tor:\n", term.Attr.BOLD))
-tor_process = stem.process.launch_tor_with_config(
-		tor_cmd=tor_cmd,
-		config=config,
-		init_msg_handler=print_bootstrap_lines,
-)
-
-try:
-		print(term.format("\nChecking our endpoint:\n", term.Attr.BOLD))
-		print(term.format(query("https://icanhazip.com"), term.Color.BLUE))
-
-
-
-
-finally:
-		if tor_process.poll() is None: # still running
-				tor_process.terminate()	# stops tor
-				tor_process.wait()
-
-
-
-
 
 
 def query(url, opener=urllib2.build_opener(
@@ -89,3 +68,26 @@ def print_bootstrap_lines(line):
     print(term.format(line, term.Color.BLUE))
   else:
     print(line)
+
+
+
+
+
+print(term.format("Starting Tor:\n", term.Attr.BOLD))
+tor_process = stem.process.launch_tor_with_config(
+		tor_cmd=tor_cmd,
+		config=config,
+		init_msg_handler=print_bootstrap_lines,
+)
+
+try:
+		print(term.format("\nChecking our endpoint:\n", term.Attr.BOLD))
+		print(term.format(query("https://icanhazip.com"), term.Color.BLUE))
+
+
+
+
+finally:
+		if tor_process.poll() is None: # still running
+				tor_process.terminate()	# stops tor
+				tor_process.wait()

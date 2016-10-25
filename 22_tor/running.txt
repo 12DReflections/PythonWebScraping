@@ -1,0 +1,4 @@
+sudo apt-get install python-pip
+sudo pip install stem
+sudo pip install PySocks
+sudo pip install docopt
