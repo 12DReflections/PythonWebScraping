@@ -13,7 +13,9 @@ def main():
 	#print mylist
 
 	website_list = ['http://www.genesisfitness.com.au/dandenong']
-	title_description_keywords(website_list)
+	meta_data = title_description_keywords(website_list)
+	print meta_data
+
 
 # Inputs a list of websites and outputs their site_title_desc_key as a list 
 def title_description_keywords(website_list):
@@ -44,7 +46,7 @@ def title_description_keywords(website_list):
 		site_title_desc_key.append(title)
 		site_title_desc_key.append(description)
 		site_title_desc_key.append(keyword + '\n')
-		print site_title_desc_key
+		return site_title_desc_key
 
 
 # Get a File of Strings into a deduplicated list
