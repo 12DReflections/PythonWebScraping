@@ -35,21 +35,12 @@ def UTF_Clean(sentence):
 
 
 def main():
-
-	with open('text.txt', 'r') as f:
-	     to_translate = f.read()
-	
+	to_translate = 'Hola como estas?'
 
 	to_translate = translate(to_translate, 'fr')
 	to_translate = translate(to_translate, 'es')
 
-	to_translate = translate(to_translate, 'en')
-
-
 	print(to_translate)
-
-	f = open('output.txt','w')
-	f.write(to_translate) # python will convert \n to os.linesep
 
 if __name__ == '__main__':
 	main()

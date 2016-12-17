@@ -4,22 +4,12 @@ import datetime
 import random
 import sys
 def main():
-	
-	
 	times_per_week = 5
 
 	run_random_time(times_per_week)
 
 
-# Create a list of random times
-def	time_list(times_per_week):
-	r_time = []
-	count = 0
-	while count < times_per_week:
-		r = rand_time_gen()
-		r_time.append(r)
-		count +=1
-	return r_time
+
 
 
 def run_random_time(times_per_week):#      (#script_object, times_per_week):
@@ -28,13 +18,10 @@ def run_random_time(times_per_week):#      (#script_object, times_per_week):
 #	
 	r_week   = random.randint(0, 6) # 0 is Monday, 6 is Sunday
 	
-	t_list = time_list(times_per_week)
+	t_list = time_list(times_per_week) #Generate list of random times
 	for t in t_list:
 		print t
 	# Generates a list of random times 
-
-
-	## User enter
 	times_to_run = times_per_week
 
 	# 1 day of the week Perform action on a day between hours
@@ -51,6 +38,16 @@ def run_random_time(times_per_week):#      (#script_object, times_per_week):
 			#script_object.dosomething()
 
 		count +=1
+
+# Returns a list of random times
+def	time_list(times_per_week):
+	r_time = []
+	count = 0
+	while count < times_per_week:
+		r = rand_time_gen()
+		r_time.append(r)
+		count +=1
+	return r_time
 
 def rand_time_gen():
 	## Generate random time
