@@ -5,15 +5,12 @@ import string
 
 def main():
 	
-	mylist = clean_list()
-	
+	#Get a list from a text file 
+	website_list = clean_list()
 	#mylist = ['http://www.cairnsindoorsports.com.au', 'http://www.poleplaystudios.com.au', 'http://www.jennycraig.com.au']
-
 	#print mylist
 
-	website_list = mylist
-	
-	
+		
 	meta_data = title_description_keywords(website_list)
 	#print meta_data
 	# #Clean non utf chars
@@ -27,7 +24,7 @@ def main():
 
 	
 
-	with open("Output6.txt", "w") as text_file:
+	with open("Output7.txt", "w") as text_file:
 	    for x in meta_data:
 			x = x.encode('ascii',errors='ignore')
 			text_file.write("%s0110" % x)
@@ -43,13 +40,16 @@ def title_description_keywords(website_list):
 	for website in website_list:
 	# Open web page into a string
 		print website
-		html = urlopen(website).read()
-		#print html success!
-		soup = BeautifulSoup(html, "lxml")
+		try:
+			html = urlopen(website).read()
+			#print html success!
+			soup = BeautifulSoup(html, "lxml")
 
-		# Append the website
-		site_title_desc_key.append(website)
-
+			# Append the website
+			site_title_desc_key.append(website)
+		except:
+			print str(website) + " could not load" # Debugging
+			continue
 		try:
 			# Get the title
 			title = soup.title.string  + '\t'
@@ -90,6 +90,18 @@ def clean_non_utf(invalidString):
 		cleanstring = item.encode('ascii',errors='ignore')
 	return cleanstring
 
+# Get a File of Strings into a deduplicated list
+def clean_list():
+	clean_list = []		 	
+	website_file = open("company_list.txt")
+
+	symbols_string = website_file.read()
+	
+	for line in symbols_string.splitlines():
+		if line not in clean_list:
+			clean_list.append(line)
+
+	return clean_list
 
 if __name__=='__main__':
 	main()
